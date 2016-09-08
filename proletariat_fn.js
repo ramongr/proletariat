@@ -51,18 +51,30 @@ Proletariat.createClassObject = function(){
   return this;
 }
 
+function createGetFunction(object){
+  return (function(){
+    return this[object];
+  });
+}
+
 Proletariat.createObjectArrayGetter = function(){
-  var i, functionName;
+  var i, functionName, object;
 
   for(i = 0; i < this.objectArray.length; i++){
     functionName = ['get', this.objectArray[i].capitalize()].join("");
 
-    this.classObject[this.className][functionName] = function(){
-      return this;
-    };
+    this.classObject[this.className][functionName] = createGetFunction(this.objectArray[i]);
   }
 
   return this;
+}
+
+function createSetFunction(object){
+  return (function(data){
+    this[object] = data;
+
+    return this;
+  });
 }
 
 Proletariat.createObjectArraySetter = function(){
@@ -71,11 +83,12 @@ Proletariat.createObjectArraySetter = function(){
   for(i = 0; i < this.objectArray.length; i++){
     functionName = ['set', this.objectArray[i].capitalize()].join("");
 
-    this.classObject[this.className][functionName] = function(data){
-      this.eval(objectArray[i]) = data;
-      return this;
-    };
+    this.classObject[this.className][functionName] = createSetFunction(this.objectArray[i]);
   }
   
   return this;
+}
+
+Proletariat.export = function(){
+  return this.classObject[this.getClassName()];
 }

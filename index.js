@@ -1,14 +1,14 @@
 $(document).ready(function(){
-  var obj;
-
-  Proletariat.setClassName("Teste")
+  var cObj = Proletariat.setClassName("Test")
     .defineSetterFlag(true)
     .defineGetterFlag(true)
     .defineObjectArray(['name', 'age', 'year'])
     .createClassObject()
     .createObjectArrayGetter()
-    .createObjectArraySetter();
+    .createObjectArraySetter(),
+  obj;
 
+  obj = cObj.export();
 });
 
 String.prototype.capitalize = function(){
