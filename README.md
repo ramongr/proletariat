@@ -1,4 +1,4 @@
-# Proletariat - A class generator for the javascript masses
+# Proletariat - A class object generator library
 
 # 1. Introduction
 
@@ -15,8 +15,22 @@ Proletariat is a class object generator for jaascript. It mainly proposes two wa
 
 Let's take a test object that has the following features:
 
-`Test = {`
-`  name: undefined,`
-`  age: undefined,`
-`  year: undefined`
-`};`
+``` javascript 
+    Test = {
+      name: undefined,
+      age: undefined,
+      year: undefined
+    };
+```
+In order to get full object-oriented functionalities it's interesting to have get and set functions to operate indirectly on the object. Proletariat has such features.
+
+```javascript
+    Proletariat.setClassName("Test")
+      .defineSetterFlag("true")
+      .defineGetterFlag("true")
+      .defineObjectArray(["name", "age", "year"])
+      .createClassObject()
+      .createObjectArrayGetter()
+      .createObjectArraySetter()
+      .export();
+```
