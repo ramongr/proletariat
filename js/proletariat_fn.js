@@ -22,7 +22,7 @@ Proletariat.createObjectArrayGetter = function(){
   }
 
   return this;
-}
+};
 
 Proletariat.createObjectArraySetter = function(){
   var i, functionName;
@@ -34,8 +34,8 @@ Proletariat.createObjectArraySetter = function(){
   }
   
   return this;
-}
+};
 
 Proletariat.export = function(){
   return this.classObject[this.getClassName()];
-}
+};

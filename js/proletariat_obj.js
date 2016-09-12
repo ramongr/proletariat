@@ -4,4 +4,4 @@ Proletariat = {
   createGetter: undefined,
   objectArray: undefined,
   classObject: {}
-}
+};
