@@ -75,17 +75,3 @@ Proletariat = {
     return this.classObject[this.getClassName()];
   }
 };
-
-function createGetFunction(object){
-  return (function(){
-    return this[object];
-  });
-}
-
-function createSetFunction(object){
-  return (function(data){
-    this[object] = data;
-
-    return this;
-  });
-}

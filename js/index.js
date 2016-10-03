@@ -1,5 +1,5 @@
-$(document).ready(function(){
-  var obj, cObj = Proletariat.setClassName("Test")
+document.addEventListener('DOMContentLoaded', function(){
+  var cObj = Proletariat.setClassName("Test")
     .defineSetterFlag(true)
     .defineGetterFlag(true)
     .defineObjectArray(['name', 'age', 'year'])
