@@ -52,13 +52,12 @@ Proletariat = {
   createObjectArrayFunctions: function(functionPrefix){
     var i, functionName;
 
+    functionName = [functionPrefix, this.objectArray[i].capitalize()].join("");
     for(i = 0; i < this.objectArray.length; i++){
       if(functionPrefix === 'set'){
-        functionName = ['set', this.objectArray[i].capitalize()].join("");
-      this.classObject[this.className][functionName] = createSetFunction(this.objectArray[i]);
+        this.classObject[this.className][functionName] = createSetFunction(this.objectArray[i]);
       }else{
-        functionName = ['set', this.objectArray[i].capitalize()].join("");
-      this.classObject[this.className][functionName] = createGetFunction(this.objectArray[i]);
+        this.classObject[this.className][functionName] = createGetFunction(this.objectArray[i]);
       }
 
     }
