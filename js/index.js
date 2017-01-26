@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', function(){
     .defineGetterFlag(true)
     .defineObjectArray(['name', 'age', 'year'])
     .createClassObject()
-    .createObjectArrayGetter()
-    .createObjectArraySetter(),
+    .createObjectArrayFunctions('get')
+    .createObjectArrayFunctions('set');
 
   obj = cObj.export();
 

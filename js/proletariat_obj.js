@@ -49,24 +49,18 @@ Proletariat = {
 
     return this;
   },
-  createObjectArrayGetter: function(){
-    var i, functionName, object;
-
-    for(i = 0; i < this.objectArray.length; i++){
-      functionName = ['get', this.objectArray[i].capitalize()].join("");
-
-      this.classObject[this.className][functionName] = createGetFunction(this.objectArray[i]);
-    }
-
-    return this;
-  },
-  createObjectArraySetter: function(){
+  createObjectArrayFunctions: function(functionPrefix){
     var i, functionName;
 
     for(i = 0; i < this.objectArray.length; i++){
-      functionName = ['set', this.objectArray[i].capitalize()].join("");
-
+      if(functionPrefix === 'set'){
+        functionName = ['set', this.objectArray[i].capitalize()].join("");
       this.classObject[this.className][functionName] = createSetFunction(this.objectArray[i]);
+      }else{
+        functionName = ['set', this.objectArray[i].capitalize()].join("");
+      this.classObject[this.className][functionName] = createGetFunction(this.objectArray[i]);
+      }
+
     }
     
     return this;
